@@ -1,0 +1,29 @@
+gnome-bible-reader/
+├── data/
+│   ├── ui/
+│   │   ├── main_window.blp
+│   │   ├── bible_view.blp
+│   │   ├── commentary_view.blp
+│   │   ├── highlights_view.blp
+│   │   └── settings_window.blp
+│   ├── icons/
+│   │   └── org.gnome.BibleReader.svg
+│   └── org.gnome.BibleReader.gschema.xml
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── application.py
+│   ├── window.py
+│   ├── bible_view.py
+│   ├── commentary.py
+│   ├── highlights.py
+│   ├── settings.py
+│   ├── books.py
+│   ├── translations.py
+│   ├── resources.py
+│   └── utils.py
+├── meson.build
+├── build-aux/meson/postinstall.py
+├── gnome-bible-reader.spec
+├── LICENSE
+└── README.md

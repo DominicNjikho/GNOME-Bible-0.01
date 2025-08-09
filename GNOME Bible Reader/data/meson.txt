@@ -1,0 +1,31 @@
+install_data(
+  'org.gnome.BibleReader.gschema.xml',
+  install_dir: get_option('datadir') / 'glib-2.0' / 'schemas',
+)
+
+install_data(
+  'icons/org.gnome.BibleReader.svg',
+  install_dir: get_option('datadir') / 'icons' / 'hicolor' / 'scalable' / 'apps',
+)
+
+install_data(
+  'org.gnome.BibleReader.desktop',
+  install_dir: get_option('datadir') / 'applications',
+)
+
+ui_files = files(
+  'ui/main_window.blp',
+  'ui/bible_view.blp',
+  'ui/commentary_view.blp',
+  'ui/highlights_view.blp',
+  'ui/settings_window.blp',
+)
+
+gnome.compile_resources(
+  'resources',
+  'org.gnome.BibleReader.gresource.xml',
+  dependencies: ui_files,
+  gresource_bundle: true,
+  install: true,
+  install_dir: pkgdatadir,
+)

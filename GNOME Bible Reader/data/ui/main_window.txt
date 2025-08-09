@@ -1,0 +1,110 @@
+using Adw 1;
+using Gtk 4;
+
+template MainWindow : Adw.ApplicationWindow {
+    property string title: "GNOME Bible Reader";
+    default-width: 1200;
+    default-height: 800;
+    
+    Box {
+        orientation: vertical;
+        
+        HeaderBar {
+            title-widget: Label {
+                label: "GNOME Bible Reader";
+                css-classes: ["title"];
+            };
+            
+            Box {
+                orientation: horizontal;
+                spacing: 12;
+                
+                DropDown {
+                    id: book_dropdown;
+                    valign: center;
+                    hexpand: true;
+                }
+                
+                DropDown {
+                    id: chapter_dropdown;
+                    valign: center;
+                }
+                
+                DropDown {
+                    id: translation_dropdown;
+                    valign: center;
+                }
+                
+                MenuButton {
+                    icon-name: "open-menu-symbolic";
+                    menu-model: menu;
+                }
+            }
+        }
+        
+        Paned {
+            id: main_paned;
+            position: 300;
+            
+            Box {
+                orientation: vertical;
+                width-request: 300;
+                
+                ScrolledWindow {
+                    hexpand: true;
+                    vexpand: true;
+                    
+                    CommentaryView {
+                        id: commentary_view;
+                    }
+                }
+            }
+            
+            Box {
+                orientation: vertical;
+                
+                ScrolledWindow {
+                    hexpand: true;
+                    vexpand: true;
+                    
+                    BibleView {
+                        id: bible_view;
+                    }
+                }
+            }
+            
+            Box {
+                orientation: vertical;
+                width-request: 300;
+                
+                ScrolledWindow {
+                    hexpand: true;
+                    vexpand: true;
+                    
+                    HighlightsView {
+                        id: highlights_view;
+                    }
+                }
+            }
+        }
+    }
+    
+    Menu {
+        id: menu;
+        
+        Section {
+            MenuItem {
+                label: "Settings";
+                action: "app.settings";
+            }
+            MenuItem {
+                label: "About";
+                action: "app.about";
+            }
+            MenuItem {
+                label: "Quit";
+                action: "app.quit";
+            }
+        }
+    }
+}

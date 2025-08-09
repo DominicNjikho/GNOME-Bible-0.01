@@ -1,0 +1,26 @@
+sources = files(
+  '__init__.py',
+  'main.py',
+  'application.py',
+  'window.py',
+  'bible_view.py',
+  'commentary.py',
+  'highlights.py',
+  'settings.py',
+  'books.py',
+  'translations.py',
+  'utils.py',
+)
+
+python = import('python')
+
+install_data(
+  sources,
+  install_dir: pkgdatadir / 'src',
+)
+
+install_sources(
+  'gnome-bible-reader',
+  install_dir: bindir,
+  install_mode: 'rwxr-xr-x',
+)
